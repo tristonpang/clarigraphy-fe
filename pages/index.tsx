@@ -1,8 +1,22 @@
 import Head from 'next/head'
 import Image from 'next/image'
+import IntroMenu from '../components/introMenu'
+import ProductCard from '../components/productCard'
 import styles from '../styles/Home.module.css'
 
-export default function Home() {
+export async function getStaticProps() {
+  const res = await fetch('http://localhost:8080/products');
+  const productsJson = await res.json();
+  console.log(productsJson);
+  return {
+    props: {
+      products: productsJson
+    }
+  };
+}
+
+export default function Home({ products }) {
+  // console.log(products);
   return (
     <div className={styles.container}>
       <Head>
@@ -12,11 +26,71 @@ export default function Home() {
       </Head>
 
       <main className={styles.main}>
-        <h1 className={styles.title}>
-          Welcome to <a href="https://nextjs.org">Next.js!</a>
-        </h1>
+        {/* <div className={styles.banner}>
+          <h1 className={styles.title}>
+            Clarigraphy
+          </h1>
+        </div>
 
-        <p className={styles.description}>
+        <div className={styles.navBar}>
+          <a href="https://nextjs.org/docs" className={styles.navBarButton}>About</a>
+          <a href="https://nextjs.org/docs" className={styles.navBarButton}>Shop</a>
+          <a href="https://nextjs.org/docs" className={styles.navBarButton}>Giving - Christmas Donations</a>
+          <a href="https://nextjs.org/docs" className={styles.navBarButton}>Get in touch</a>
+        </div> */}
+        <IntroMenu />
+
+        <div className={styles.section}>
+          <h2 className={styles.sectionTitle}>About</h2>
+          <div className={styles.sectionContent}>
+            <Image style={{ borderRadius: '50%', overflow: 'hidden' }} src="/images/profile-test.jpg" alt="Test profile" width={200} height={200} />
+          </div>
+          <div className={styles.sectionContent}>
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris imperdiet sem ac orci varius ullamcorper. Duis tincidunt viverra tincidunt. Fusce dignissim a nisl a tempus. In imperdiet elementum sem, eu faucibus enim pretium in. Suspendisse a lobortis nibh. Aliquam magna nibh, malesuada sed ligula eget, sollicitudin posuere velit. Integer hendrerit est a efficitur blandit.
+            </p>
+          </div>
+        </div>
+
+        <div className={styles.saleBanner}>
+          <h2>SHOP CHRISTMAS SALE NOW!</h2>
+        </div>
+
+        <div className={styles.section}>
+          {products.map((product) => (
+            <ProductCard name={product.name} price={product.price} picLink={product.picLink}/>
+          ))}
+          {/* <ProductCard name={'Test name'} price={4.99} picLink={''}/>
+          <ProductCard name={'Test name'} price={4.99} picLink={''}/>
+          <ProductCard name={'Test name'} price={4.99} picLink={''}/> */}
+        </div>
+
+        <div className={styles.section}>
+          <div className={styles.sectionContentVert}>
+            <h2>Where we're giving to</h2>
+            <div className={styles.sectionContent}>
+              <div className={styles.sectionContent}>
+                <Image src="/images/profile-test.jpg" alt="Test profile" width={200} height={200} />
+              </div>
+              <div className={styles.sectionContent}>
+                <p>
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris imperdiet sem ac orci varius ullamcorper. Duis tincidunt viverra tincidunt. Fusce dignissim a nisl a tempus. In imperdiet elementum sem, eu faucibus enim pretium in. Suspendisse a lobortis nibh. Aliquam magna nibh, malesuada sed ligula eget, sollicitudin posuere velit. Integer hendrerit est a efficitur blandit.
+                </p>
+              </div> 
+            </div>
+          </div>
+        </div>
+
+        <div className={styles.section}>
+          <h2 className={styles.sectionTitle}>Get in touch</h2>
+          <div className={styles.sectionContent}>
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris imperdiet sem ac orci varius ullamcorper. Duis tincidunt viverra tincidunt. Fusce dignissim a nisl a tempus. In imperdiet elementum sem, eu faucibus enim pretium in. Suspendisse a lobortis nibh. Aliquam magna nibh, malesuada sed ligula eget, sollicitudin posuere velit. Integer hendrerit est a efficitur blandit.
+            </p>
+          </div>
+        </div>
+
+        {/* <p className={styles.description}>
           Get started by editing{' '}
           <code className={styles.code}>pages/index.tsx</code>
         </p>
@@ -51,7 +125,7 @@ export default function Home() {
               Instantly deploy your Next.js site to a public URL with Vercel.
             </p>
           </a>
-        </div>
+        </div> */}
       </main>
 
       <footer className={styles.footer}>
