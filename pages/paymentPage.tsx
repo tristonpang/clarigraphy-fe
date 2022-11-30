@@ -28,7 +28,7 @@ export default function PaymentPage({ setCart }: any) {
 
         <div className={styles.section}>
           <h1 className={styles.title}>Payment</h1>
-          <p className={styles.text}>Please pay ${total} via PayNow to 85880918, or by scanning the QR code below. Indicate your name in the payment reference</p>
+          <p className={styles.text}>Please pay ${total} via PayNow to 85880918, or by scanning the QR code below. Indicate your name in the payment reference.</p>
           <Image src="/images/test-qr.jpg" alt='paynow' width={400} height={400} className={styles.qr} />
           <p className={styles.text}>Thank you for your purchase! I hope you have a nice day :)</p>
         </div>

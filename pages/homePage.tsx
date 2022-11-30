@@ -19,7 +19,7 @@ export default function HomePage({ products }: any) {
         <div id='about' className={styles.section}>
           <h2 className={styles.sectionTitle}>About</h2>
           <div className={styles.sectionContent}>
-            <Image style={{ borderRadius: '50%', overflow: 'hidden' }} src="/images/profile-test.jpg" alt="Test profile" width={200} height={200} />
+            <Image style={{ borderRadius: '50%', overflow: 'hidden' }} src="/images/profile-test.jpg" alt="Test profile" width={200} height={200} className={styles.aboutPic} />
           </div>
           <div className={styles.sectionContent}>
             <p>
@@ -46,7 +46,7 @@ export default function HomePage({ products }: any) {
             <h2>Where we're giving to</h2>
             <div className={styles.sectionContent}>
               <div className={styles.sectionContent}>
-                <Image src="/images/profile-test.jpg" alt="Test profile" width={200} height={200} />
+                <Image src="/images/profile-test.jpg" alt="Test profile" width={200} height={200} className={styles.givingPic} />
               </div>
               <div className={styles.sectionContent}>
                 <p>
@@ -65,7 +65,6 @@ export default function HomePage({ products }: any) {
             </p>
           </div>
         </div>
-
       </main>
 
       <footer className={styles.footer}>

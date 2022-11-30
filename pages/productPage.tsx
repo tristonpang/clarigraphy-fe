@@ -48,7 +48,7 @@ export default function ProductPage({ productDetails, cart, setCart }: any) {
         <IntroMenu />
 
         <div className={styles.section}>
-          <Image className={styles.image} src={productData.picLink} alt="Test profile" width={500} height={500}></Image>
+          <Image className={styles.image} src={productData.picLink} alt="Product image" width={500} height={500}></Image>
           <div className={styles.productInfo}>
             <h1 className={styles.productTitle}>{productData.name}</h1>
             <h2 className={styles.price}>${productData.price}</h2>

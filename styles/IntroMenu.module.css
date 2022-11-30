@@ -21,6 +21,10 @@
   background-color: grey;
 }
 
+.navBarMobile {
+  display: none;
+}
+
 .navBarButton {
   margin: 0 3em;
   padding: 1.5rem;
@@ -47,4 +51,20 @@
   color: #000;
   left: 96%;
   top: 2rem;
+}
+
+@media only screen 
+  and (min-device-width: 200px) 
+  and (max-device-width: 736px) { 
+    .navBar {
+      display: none;
+    }
+
+    .cart {
+      left: 165%;
+      top: 1.5rem;
+      padding: 2rem;
+    }
+
+    
 }

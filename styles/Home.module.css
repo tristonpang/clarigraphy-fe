@@ -165,3 +165,51 @@
     filter: invert(1);
   }
 }
+
+@media only screen 
+  and (min-device-width: 200px) 
+  and (max-device-width: 736px) { 
+    .main {
+      width: 50rem;
+    }
+
+    .section {
+      flex-direction: column;
+      height: 100%;
+    }
+
+    .sectionTitle {
+      transform: none;
+      margin: 0px;
+      /* margin-top: 5rem; */
+      font-size: 2.5rem;
+      margin-bottom: 3.5rem;
+    }
+
+    .sectionContent {
+      flex-direction: column;
+      padding: 0rem 2rem;
+      margin-bottom: 3.5rem;
+      font-size: 2rem;
+      text-align: justify;
+    }
+
+    .saleBanner {
+      font-size: 1.3rem;
+    }
+
+    .sectionContentVert h2 {
+      font-size: 2.5rem;
+      margin-bottom: 5rem;
+    }
+
+    .aboutPic {
+      height: 300px;
+      width: 300px;
+    }
+
+    .givingPic {
+      height: 300px;
+      width: 300px;
+    }
+}

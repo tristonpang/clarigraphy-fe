@@ -2,6 +2,8 @@ import styles from '../styles/IntroMenu.module.css';
 import { MdShoppingCart } from 'react-icons/md'
 import { IconContext } from 'react-icons';
 import Link from 'next/link'
+
+
 const IntroMenu = () => {
   return (
     <div className={styles.container}>
@@ -17,12 +19,12 @@ const IntroMenu = () => {
           </h1>
         </Link>
       </div>
-        <div className={styles.navBar}>
-          <Link href="/#about" className={styles.navBarButton}>About</Link>
-          <Link href="/#shop" className={styles.navBarButton}>Shop</Link>
-          <Link href="/#giving" className={styles.navBarButton}>Giving - Christmas Donations</Link>
-          <Link href="/#contact" className={styles.navBarButton}>Get in touch</Link>
-        </div>
+      <div className={styles.navBar}>
+        <Link href="/#about" className={styles.navBarButton}>About</Link>
+        <Link href="/#shop" className={styles.navBarButton}>Shop</Link>
+        <Link href="/#giving" className={styles.navBarButton}>Giving - Christmas Donations</Link>
+        <Link href="/#contact" className={styles.navBarButton}>Get in touch</Link>
+      </div>
     </div>
   );
 }
