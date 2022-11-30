@@ -41,3 +41,10 @@
   font-size: 4rem;
   color: #000;
 }
+
+.cart {
+  position: absolute;
+  color: #000;
+  left: 96%;
+  top: 2rem;
+}
