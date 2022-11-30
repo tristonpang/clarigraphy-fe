@@ -22,22 +22,22 @@ export async function getStaticProps() {
 export default function CartPage({ cart, setCart, products }: any) {
   let parsedCart: { _id: string, price: number, name: string, details: string, picLink: string, quantity: number }[] = []
   useEffect(() => {
-    const localParsedCart = cart.map(cartElem => {
-      const productDetails = products.filter(productsElem => cartElem.productId === productsElem._id)[0]
+    const localParsedCart = cart.map((cartElem: any) => {
+      const productDetails = products.filter((productsElem: any) => cartElem.productId === productsElem._id)[0]
       return { quantity: cartElem.quantity, ...productDetails }
     })
     parsedCart = localParsedCart
   }, [cart])
 
   const modifyQuantity = (product: { productId: string, quantity: number }, newQuantity: number) => {
-    const targetIndex = cart.map(e => e.productId).indexOf(product.productId)
+    const targetIndex = cart.map((e: any) => e.productId).indexOf(product.productId)
     const newCart = [...cart]
     newCart[targetIndex] = { productId: product.productId, quantity: newQuantity }
     setCart([...newCart])
   }
 
   const removeFromCart = (productId: string) => {
-    const newCart = cart.filter(e => e.productId !== productId)
+    const newCart = cart.filter((e: any) => e.productId !== productId)
     setCart([...newCart])
   }
 
@@ -79,13 +79,13 @@ export default function CartPage({ cart, setCart, products }: any) {
   }
 
   const renderCartProducts = () => {
-    const localParsedCart = cart.map(cartElem => {
-      const productDetails = products.filter(productsElem => cartElem.productId === productsElem._id)[0]
+    const localParsedCart = cart.map((cartElem: any) => {
+      const productDetails = products.filter((productsElem: any) => cartElem.productId === productsElem._id)[0]
       return { quantity: cartElem.quantity, ...productDetails }
     })
     parsedCart = localParsedCart
 
-    return localParsedCart.map((product) => (
+    return localParsedCart.map((product: any) => (
       <div className={styles.cartProduct}>
         <Image src={product.picLink} alt='thumbnail' width={100} height={100} className={styles.thumbnail} />
         <div className={styles.productNameContainer}>
@@ -144,7 +144,6 @@ export default function CartPage({ cart, setCart, products }: any) {
               color="#ffffff" 
               ariaLabel="three-dots-loading"
               wrapperStyle={{}}
-              wrapperClassName=""
               visible={true}
               /> : 'Submit my order!'}
           </button> : <p>There are currently no items in your cart</p>}

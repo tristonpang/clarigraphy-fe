@@ -16,6 +16,6 @@ export default function Home({ products, cart }: any) {
   // const [cart, setCart] = useState([])
   console.log(cart)
   return (
-    <HomePage products={products} cart={cart} />
+    <HomePage products={products} />
   )
 }

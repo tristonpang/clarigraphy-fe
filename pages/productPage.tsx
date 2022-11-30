@@ -9,7 +9,7 @@ import { CartContext } from '../CartContext';
 
 export default function ProductPage({ productDetails, cart, setCart }: any) {
   const router = useRouter()
-  const productData = router.query
+  const productData: any = router.query
   const [quantity, setQuantity] = useState(0);
   const [hasAddedToCart, setHasAddedToCart] = useState(false);
   
@@ -21,7 +21,7 @@ export default function ProductPage({ productDetails, cart, setCart }: any) {
     if (quantity <= 0) {
       return;
     }
-    const existingIndex = cart.map(elem => elem.productId).indexOf(productData._id)
+    const existingIndex = cart.map((elem: any) => elem.productId).indexOf(productData._id)
     if (existingIndex >= 0) {
       // product already exists in cart
       const newCart = [...cart]
